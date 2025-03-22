@@ -25,7 +25,7 @@ customer_name text PRIMARY KEY,
 city text ,
 grade integer,
 salesman_id text,
-FOREIGN key (salesman_id) REFERENCES salesman(salesman_id);
+FOREIGN key (salesman_id) REFERENCES salesman(salesman_id));
 
 
 
@@ -38,9 +38,9 @@ VALUES
 (2005,'diksha singh','meerut',200,103);
 
 
-select * from customers
+select * from customer
 
-create table is not exists orders(
+create table IF not exists orders(
 
 ord_no text  PRIMARY key ,
 ord_date text,
@@ -60,6 +60,13 @@ VALUES
 
 
 SELECT * from orders
+
+
+SELECT * from customer JOIN salesman ON customer.city=salesman.city
+
+SELECT customer_name,customer.city,customer.salesman_id from customer JOIN salesman on customer.salesman_id=salesman.salesman_id
+GROUP by customer_name,customer.city,customer.salesman_id 
+
 
 
 
